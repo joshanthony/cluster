@@ -1,0 +1,343 @@
+/*
+ * Cluster
+ *
+ * Copyright 2013 Josh Anthony
+ * Licensed under MIT
+ * http://opensource.org/licenses/MIT
+ *
+ * Crafted with care by Josh Anthony from http://dhyperdrive.com
+ */
+
+// *************************************************************************************************************
+// =============================================================================================================
+// START OF THE CLUSTER CONTROLLER
+// -------------------------------
+// This is the cluster controller, this is where you customise the cluster for your own needs,
+// add your own flair by tweaking the variables at the start of each section,
+// additionally you can slim down your css by removing things that you don't need below
+// =============================================================================================================
+// *************************************************************************************************************
+
+// GLOBAL VARIABLES ===||
+
+$action-color: #208ED6;
+$action-hover-color: #1C83C7;
+$action-border-color: $action-hover-color;
+$action-hover-border-color: $action-hover-color;
+$action-disabled-color: #4AA3DE;
+$action-disabled-border-color: $action-disabled-color;
+
+$success-color: #4FA16A;
+$success-hover-color: #489963;
+$success-border-color: $success-hover-color;
+$success-hover-border-color: $success-hover-color;
+$success-disabled-color: #71B286;
+$success-disabled-border-color: $success-disabled-color;
+
+$danger-color: #DB4D48;
+$danger-hover-color: #D1443F;
+$danger-border-color: $danger-hover-color;
+$danger-hover-border-color: $danger-hover-color;
+$danger-disabled-color: #E26F6A;
+$danger-disabled-border-color: $danger-disabled-color;
+
+$secondary-color: #EBA94D;
+$secondary-hover-color: #E6A549;
+$secondary-border-color: $secondary-hover-color;
+$secondary-hover-border-color: $secondary-hover-color;
+$secondary-disabled-color: #EFBA6F;
+$secondary-disabled-border-color: $secondary-disabled-color;
+
+//===================================================================================================||
+// (1) NORMALISE/CSS RESET **************************************************************************||
+//===================================================================================================||
+
+//variables
+$make-images-responsive: yes; //set variable to "yes" if you want to imake images responsive
+
+//import the elements
+@import "elements/normalize"; //This sets up a consistent base including images being responsivene by default
+
+//===================================================================================================||
+// (2) GRIDS ****************************************************************************************||
+//===================================================================================================||
+
+//variables
+$columns: 24;
+$column-padding: 10px; //padding left and right
+$column-size: 100% / $columns; //fluid width columns
+
+$include-push-pull: yes; //set variable to "yes" if you want to include push and pull classes
+
+$mobile-breakpoint: 768px;
+$desktop-breakpoint: 1200px;
+
+$container-width: 1170px; //this makes the container 100% until it reaches max width
+$desktop-container-width: $container-width;
+
+//import the elements
+@import "elements/grid";
+
+//call the elements
+@include grid-scaffolding-styles;
+@include mobile-column-styles;
+@include regular-column-styles;
+@include desktop-column-styles;
+
+//===================================================================================================||
+// (3) TYPOGRAPHY ***********************************************************************************||
+//===================================================================================================||
+
+//variables
+$base-font-family: Courier New, Helvetica, Trebuchet, Arial, sans-serif;
+$base-font-size: 100%; //equates to 16px in modern browsers
+$line-height: 23px; //1.4375em
+
+$base-background-color: #ffffff;
+$base-font-color: #000000;
+
+$code-font-size: 1em;
+
+//import the elements
+@import "elements/typography"; //Basic styles for all typography including links and headings
+
+//call the elements
+@include typography-global-styles;
+@include heading-styles;
+@include table-styles;
+@include list-styles;
+@include link-styles;
+@include code-styles;
+
+//===================================================================================================||
+// (4) BUTTONS **************************************************************************************||
+//===================================================================================================||
+
+//variables
+$base-button-color: #F8F9FA;
+$base-button-border: 1px solid rgba(0,0,0,.2);
+$button-text-color: #111;
+
+//action button colors
+$action-button-color: $action-color;
+$action-button-border-color: $action-border-color;
+$action-button-hover-color: $action-hover-color;
+$action-button-hover-border-color: $action-hover-border-color;
+$action-button-text-color: #ffffff;
+$action-button-text-hover-color: $action-button-text-color;
+$action-button-disabled-color: $action-disabled-color;
+$action-button-disabled-border-color: $action-disabled-border-color;
+
+//success button colors
+$success-button-color: $success-color;
+$success-button-border-color: $success-border-color;
+$success-button-hover-color: $success-hover-color;
+$success-button-hover-border-color: $success-hover-border-color;
+$success-button-text-color: $action-button-text-color;
+$success-button-text-hover-color: $action-button-text-color;
+$success-button-disabled-color: $success-disabled-color;
+$success-button-disabled-border-color: $success-disabled-border-color;
+
+//danger button colors
+$danger-button-color: $danger-color;
+$danger-button-border-color: $danger-border-color;
+$danger-button-hover-color: $danger-hover-color;
+$danger-button-hover-border-color: $danger-hover-border-color;
+$danger-button-text-color: $action-button-text-color;
+$danger-button-text-hover-color: $action-button-text-color;
+$danger-button-disabled-color: $danger-disabled-color;
+$danger-button-disabled-border-color: $danger-disabled-border-color;
+
+//secondary button colors
+$secondary-button-color: $secondary-color;
+$secondary-button-border-color: $secondary-border-color;
+$secondary-button-hover-color: $secondary-hover-color;
+$secondary-button-hover-border-color: $secondary-hover-border-color;
+$secondary-button-text-color: $action-button-text-color;
+$secondary-button-text-hover-color: $action-button-text-color;
+$secondary-button-disabled-color: $secondary-disabled-color;
+$secondary-button-disabled-border-color: $secondary-disabled-border-color;
+
+//link button colors
+$link-button-color: #1C83C7;
+$link-button-disabled-color: #479AD2;
+
+$button-raised-border-color: rgba(0,0,0,.1);
+$button-raised-border-hover-color: rgb(198, 198, 198);
+
+//multipliers for button sizing
+$button-small-multiplier: 0.75; //makes the small button a multiple size of the regular sized button e.g. 0.75 or 0.5
+$button-large-multiplier: 1.5; //makes the large button a multiple size of the regular sized button e.g. 2 or 1.5
+
+$button-height: 36px;
+$button-min-width: 100px;
+$button-padding-top-bottom: 0px;
+$button-padding-left-right: 14px;
+$button-margin-top-bottom: 5px;
+$button-border-radius: 2px;
+$button-font-size: 1em;
+$button-line-height: 36px;
+$button-raised-shadow-color: rgb(198, 198, 198);
+
+$button-adjacent-margins: 2px;
+$block-button-top-margin: 5px;
+
+//import the elements
+@import "elements/buttons"; //Basic button styles for various button arrangements
+
+//call the elements
+@include button-global-styles;
+@include button-raised-styles;
+@include button-large-styles;
+@include button-small-styles;
+@include button-disabled-styles;
+@include button-action-styles;
+@include button-success-styles;
+@include button-danger-styles;
+@include button-secondary-styles;
+
+//===================================================================================================||
+// (5) NOTIFICATIONS ********************************************************************************||
+//===================================================================================================||
+
+//variables
+
+//import the elements
+// @import "elements/notifications";//Styles for messages that crop up including success/error messages, badges, pop-ups and modals
+
+//===================================================================================================||
+// (6) FORMS ****************************************************************************************||
+//===================================================================================================||
+
+//variables
+$input-padding: 7px 10px 7px 10px;
+$input-top-margin: 7px;
+$input-bottom-margin: $input-top-margin;
+$input-font-size: 14px;
+$input-border-radius: 2px;
+$input-focus-color: $action-color;
+
+//import the elements
+@import "elements/forms"; //Super simple form styles
+
+//call the elements
+@include form-global-and-inline-styles;
+
+//===================================================================================================||
+// (7) TABLES ***************************************************************************************||
+//===================================================================================================||
+
+//variables
+
+//import the elements
+// @import "elements/tables"; //Basic tables styles including default responsive styling for tables
+
+//===================================================================================================||
+// (8) NAVIGATION ***********************************************************************************||
+//===================================================================================================||
+
+//variables
+//general nav styles
+$nav-min-height: 40px;
+$nav-border-width: 1px;
+$nav-border-color: #ddd;
+$nav-border-style: solid;
+
+//nav item styles
+$nav-item-font-size: 16px;
+$nav-item-color: #777; //applies to the brand as well
+$nav-item-hover-color: #000; //applies to the brand as well
+$nav-item-group-float: left;
+$nav-item-float: $nav-item-group-float;
+$nav-item-margins: 12px 20px 8px 0px;
+
+//nav brand styles
+$nav-brand-font-size: 20px;
+$nav-brand-line-height: 23px;
+$nav-brand-margins: 10px 20px 10px 0px;;
+$nav-brand-float: left;
+$nav-brand-font-weight: bold;
+
+//nav dropdown styles
+$nav-dropdown-item-font-size: 16px;
+$nav-dropdown-item-text-align: left;
+$nav-dropdown-background-color: #fff;
+$nav-dropdown-item-padding: 5px 10px 5px 10px;
+$nav-dropdown-item-margin: 0;
+$nav-dropdown-first-item-top-margin: 8px;
+$nav-dropdown-item-border-width: 0px 1px;
+$nav-dropdown-last-item-border-width: 0px 1px 1px 1px;
+$nav-dropdown-item-border-style: solid;
+$nav-dropdown-item-border-color: #ddd;
+
+//nav-collapse styles
+$nav-collapse-item-align: left;
+$nav-collapse-trigger-padding: 6px 6px 5px 6px;
+$nav-collapse-trigger-color: $nav-item-color;
+$nav-collapse-trigger-hover-color: $nav-item-hover-color;
+$nav-collapse-trigger-font-size: 27px;
+$nav-collapse-trigger-text-font-size: 16px;
+$nav-collapse-trigger-float: right;
+$nav-collapse-trigger-text-float: $nav-collapse-trigger-float;
+$nav-collapse-trigger-content: "\2261";
+
+//nav stacked styles
+$nav-stacked-item-align: $nav-collapse-item-align;
+
+//import the elements
+@import "elements/navigation"; //Menu bar styles including styles fo sub menus and pagination
+
+//call the elements
+@include menu-styles;
+@include menu-dropdown-styles;
+@include mobile-menu-styles;
+@include menu-stacked-styles;
+
+//===================================================================================================||
+// (9) MEDIA ***************************************************************************************||
+//===================================================================================================||
+
+//variables
+
+//import the elements
+// @import "elements/media"; //Contains syles for videos, slideshows and audio but not styles for images (see normalize)
+
+//===================================================================================================||
+// (10) ICONS ***************************************************************************************||
+//===================================================================================================||
+
+//import the elements
+@import "elements/icons"; //Lovely icons from @fontawesome
+
+//call the elements
+@include entypo-icons;
+
+//===================================================================================================||
+// (11) UTILITY CLASSES *****************************************************************************||
+//===================================================================================================||
+
+//import the elements
+@import "elements/utility-classes"; //Useful classes including text alignment and pull-left/pull-right type classes
+
+//call the elements
+@include utility-clearfix-styles;
+@include utility-pull-styles;
+@include utility-hide-show-styles;
+@include utility-text-color-styles;
+@include utility-text-align-styles;
+
+//===================================================================================================||
+// (12) A-TYPICAL HTML ******************************************************************************||
+//===================================================================================================||
+
+//variables
+
+//import the elements
+// @import "elements/atypical-html"; //Remove this if you don't use some of the less commonly used html tags such as dl, dt, dd, etc.
+
+//===================================================================================================||
+// (13) PROJECT SPECIFIC STYLES *********************************************************************||
+//===================================================================================================||
+
+//import the elements
+@import "project.scss"; //project specific and custom styles

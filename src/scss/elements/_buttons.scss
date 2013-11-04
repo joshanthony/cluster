@@ -1,0 +1,328 @@
+//Base/global button styles
+@mixin button-global-styles {
+  .btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: $button-height;
+    min-width: $button-min-width;
+    padding-top: $button-padding-top-bottom;
+    padding-bottom: $button-padding-top-bottom;
+    padding-left: $button-padding-left-right;
+    padding-right: $button-padding-left-right;
+    border: $base-button-border;
+    margin-top: $button-margin-top-bottom;
+    margin-bottom: $button-margin-top-bottom;
+    -webkit-border-radius: $button-border-radius;
+    border-radius: $button-border-radius;
+    background-color: $base-button-color;
+    color: $button-text-color;
+    font-family: inherit;
+    font-size: $button-font-size;
+    line-height: $button-line-height;
+    font-weight: 400;
+    text-decoration: none;
+    text-shadow: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+  }
+  .btn:focus {
+    outline: thin dotted #000;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  .btn:hover,
+  .btn:focus {
+    border-color: rgba(0,0,0,.4);
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+  }
+  .btn:active,
+  .btn.active {
+    outline: 0;
+    background-image: none;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.125);
+  }
+  .btn + .btn,
+  p > .btn {
+    margin-left: $button-adjacent-margins;
+    margin-right: $button-adjacent-margins;
+  }
+  .btn-block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .btn-block + .btn-block {
+    margin-top: $block-button-top-margin;
+  }
+}
+
+//button-raised styles
+@mixin button-raised-styles {
+  .btn-raised {
+    box-shadow: 1px 2px $button-raised-shadow-color;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    border-color: $button-raised-border-color;
+  }
+  .btn-raised:hover,
+  .btn-raised:focus {
+    border-color: $button-raised-border-hover-color;
+    top: 2px;
+  }
+}
+
+//button large styles
+@mixin button-large-styles {
+  .btn-lg {
+    height: $button-height * $button-large-multiplier;
+    line-height: $button-line-height * $button-large-multiplier;
+    min-width: $button-min-width * $button-large-multiplier;
+    border-radius: $button-border-radius * $button-large-multiplier;
+    font-size: $button-font-size * $button-large-multiplier;
+    padding-top: $button-padding-top-bottom * $button-large-multiplier;
+    padding-bottom: $button-padding-top-bottom * $button-large-multiplier;
+    padding-left: $button-padding-left-right * $button-large-multiplier;
+    padding-right: $button-padding-left-right * $button-large-multiplier;
+    @if ($button-height * $button-large-multiplier) > ($button-height * 2.5) {
+      margin-top: (($line-height * 4) - ($button-height * $button-large-multiplier)) / 2;
+      margin-bottom: (($line-height * 4) - ($button-height * $button-large-multiplier)) / 2;
+    }
+    @else if ($button-height * $button-large-multiplier) > ($button-height * 1.8) {
+      margin-top: (($line-height * 3) - ($button-height * $button-large-multiplier)) / 2;
+      margin-bottom: (($line-height * 3) - ($button-height * $button-large-multiplier)) / 2;
+    }
+    @else if ($button-height * $button-large-multiplier) > $button-height {
+      margin-top: (($line-height * 2) - ($button-height * $button-large-multiplier)) / 2;
+      margin-bottom: (($line-height * 2) - ($button-height * $button-large-multiplier)) / 2;
+    } @else {
+      margin-top: $button-margin-top-bottom * $button-large-multiplier;
+      margin-bottom: $button-margin-top-bottom * $button-large-multiplier;
+    }
+  }
+}
+
+//button small styles
+@mixin button-small-styles {
+  .btn-sm {
+    height: $button-height * $button-small-multiplier;
+    line-height: $button-line-height * $button-small-multiplier;
+    min-width: $button-min-width * $button-small-multiplier;
+    border-radius: $button-border-radius * $button-small-multiplier;
+    font-size: $button-font-size * $button-small-multiplier;
+    padding-top: $button-padding-top-bottom * $button-small-multiplier;
+    padding-bottom: $button-padding-top-bottom * $button-small-multiplier;
+    padding-left: $button-padding-left-right * $button-small-multiplier;
+    padding-right: $button-padding-left-right * $button-small-multiplier;
+    @if ($button-height * $button-small-multiplier) < $button-height {
+      margin-top: ($line-height - ($button-height * $button-small-multiplier)) / 2;
+      margin-bottom: ($line-height - ($button-height * $button-small-multiplier)) / 2;
+    } @else {
+      margin-top: $button-margin-top-bottom * $button-small-multiplier;
+      margin-bottom: $button-margin-top-bottom * $button-small-multiplier;
+    }
+
+  }
+}
+
+//button disabled styles
+@mixin button-disabled-styles {
+  .btn.disabled,
+  .btn[disabled],
+  fieldset[disabled] .btn {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+  }
+}
+
+//button colors
+//button action colors
+@mixin button-action-styles {
+  .btn-action {
+    color: $action-button-text-color;
+    background-color: $action-button-color;
+    border-color: $action-button-border-color;
+  }
+  .btn-action:hover,
+  .btn-action:focus,
+  .btn-action:active,
+  .btn-action.active,
+  .open .dropdown-toggle.btn-action {
+    color: $action-button-text-hover-color;
+    background-color: $action-button-hover-color;
+    border-color: $action-button-hover-border-color;
+  }
+  .btn-action:active,
+  .btn-action.active,
+  .open .dropdown-toggle.btn-primary {
+    background-image: none;
+  }
+  .btn-action.disabled,
+  .btn-action[disabled],
+  .btn-action.disabled:hover,
+  .btn-action[disabled]:hover,
+  .btn-action.disabled:focus,
+  .btn-action[disabled]:focus,
+  .btn-action.disabled:active,
+  .btn-action[disabled]:active,
+  .btn-action.disabled.active,
+  .btn-action[disabled].active {
+    background-color: $action-button-disabled-color;
+    border-color: $action-button-disabled-border-color;
+  }
+}
+
+//button success colors
+@mixin button-success-styles {
+  .btn-success {
+    color: $success-button-text-color;
+    background-color: $success-button-color;
+    border-color: $success-button-border-color;
+  }
+  .btn-success:hover,
+  .btn-success:focus,
+  .btn-success:active,
+  .btn-success.active,
+  .open .dropdown-toggle.btn-success {
+    color: $success-button-text-hover-color;
+    background-color: $success-button-hover-color;
+    border-color: $success-button-hover-border-color;
+  }
+  .btn-success:active,
+  .btn-success.active,
+  .open .dropdown-toggle.btn-success {
+    background-image: none;
+  }
+  .btn-success.disabled,
+  .btn-success[disabled],
+  .btn-success.disabled:hover,
+  .btn-success[disabled]:hover,
+  .btn-success.disabled:focus,
+  .btn-success[disabled]:focus,
+  .btn-success.disabled:active,
+  .btn-success[disabled]:active,
+  .btn-success.disabled.active,
+  .btn-success[disabled].active {
+    background-color: $success-button-disabled-color;
+    border-color: $success-button-disabled-border-color;
+  }
+}
+
+//button danger colors
+@mixin button-danger-styles {
+  .btn-danger {
+    color: $danger-button-text-color;
+    background-color: $danger-button-color;
+    border-color: $danger-button-border-color;
+  }
+  .btn-danger:hover,
+  .btn-danger:focus,
+  .btn-danger:active,
+  .btn-danger.active,
+  .open .dropdown-toggle.btn-danger {
+    color: $danger-button-text-hover-color;
+    background-color: $danger-button-hover-color;
+    border-color: $danger-button-hover-border-color;
+  }
+  .btn-danger:active,
+  .btn-danger.active,
+  .open .dropdown-toggle.btn-danger {
+    background-image: none;
+  }
+  .btn-danger.disabled,
+  .btn-danger[disabled],
+  .btn-danger.disabled:hover,
+  .btn-danger[disabled]:hover,
+  .btn-danger.disabled:focus,
+  .btn-danger[disabled]:focus,
+  .btn-danger.disabled:active,
+  .btn-danger[disabled]:active,
+  .btn-danger.disabled.active,
+  .btn-danger[disabled].active {
+    background-color: $danger-button-disabled-color;
+    border-color: $danger-button-disabled-border-color;
+  }
+}
+
+//button secondary colors
+@mixin button-secondary-styles {
+  .btn-secondary {
+    color: $secondary-button-text-color;
+    background-color: $secondary-button-color;
+    border-color: $secondary-button-border-color;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus,
+  .btn-secondary:active,
+  .btn-secondary.active,
+  .open .dropdown-toggle.btn-secondary {
+    color: $secondary-button-text-hover-color;
+    background-color: $secondary-button-hover-color;
+    border-color: $secondary-button-hover-border-color;
+  }
+  .btn-secondary:active,
+  .btn-secondary.active,
+  .open .dropdown-toggle.btn-secondary {
+    background-image: none;
+  }
+  .btn-secondary.disabled,
+  .btn-secondary[disabled],
+  .btn-secondary.disabled:hover,
+  .btn-secondary[disabled]:hover,
+  .btn-secondary.disabled:focus,
+  .btn-secondary[disabled]:focus,
+  .btn-secondary.disabled:active,
+  .btn-secondary[disabled]:active,
+  .btn-secondary.disabled.active,
+  .btn-secondary[disabled].active {
+    background-color: $secondary-button-disabled-color;
+    border-color: $secondary-button-disabled-border-color;
+  }
+}
+
+//button link colors
+@mixin button-link-styles {
+  .btn-link {
+    color: $link-button-color;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 0;
+  }
+  .btn-link,
+  .btn-link:active,
+  .btn-link[disabled],
+  fieldset[disabled] .btn-link {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .btn-link,
+  .btn-link:hover,
+  .btn-link:focus,
+  .btn-link:active {
+    border-color: transparent;
+  }
+  .btn-link:hover,
+  .btn-link:focus {
+    color: #0D72B5;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  .btn-link.disabled,
+  .btn-link[disabled]:hover,
+  .btn-link[disabled]:focus {
+    color: $link-button-disabled-color;
+    text-decoration: none;
+  }
+}

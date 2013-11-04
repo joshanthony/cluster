@@ -1,0 +1,64 @@
+//utility classes
+
+//clearfix
+@mixin utility-clearfix-styles {
+  .clearfix:before,
+  .clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  .clearfix:after {
+    clear: both;
+  }
+}
+
+//pull classes
+@mixin utility-pull-styles {
+  .pull-right {
+    float: right !important;
+  }
+  .pull-left {
+    float: left !important;
+  }
+}
+
+//text align classes
+@mixin utility-text-align-styles {
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+
+//hide and show classes
+@mixin utility-hide-show-styles {
+  .hide {
+    display: none !important;
+  }
+  .show {
+    display: block !important;
+  }
+}
+
+//text colors
+@mixin utility-text-color-styles {
+  .text-action {
+    color: $action-color;
+  }
+  .text-success {
+    color: $success-color;
+  }
+  .text-danger {
+    color: $danger-color;
+  }
+  .text-secondary {
+    color: $secondary-color;
+  }
+}

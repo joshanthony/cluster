@@ -1,0 +1,115 @@
+//base/global styles
+@mixin typography-global-styles {
+  body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    background-color: $base-background-color;
+    color: $base-font-color;
+  }
+  p,
+  ul,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .small {
+    margin: $line-height 0 $line-height 0;
+  }
+  p,
+  ul,
+  ol {
+    font-size: $base-font-size; //1em
+    line-height: $line-height; //1.4375em
+  }
+}
+
+//heading styles
+@mixin heading-styles {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $base-font-family;
+    font-weight: 700;
+  }
+  //16px / 23px (1.4375) ratio\\
+  h1 {
+    font-size: 40px; //2.5000em
+    line-height: 46px; //1.1500em
+  }
+  h2 {
+    font-size: 34px; //2.1250em
+    line-height: 46px; //1.3529em
+  }
+  h3 {
+    font-size: 26px; //1.6250em
+    line-height: 46px; //1.7692em
+  }
+  h4 {
+    font-size: 20px; //1.2500em
+    line-height: 23px; //1.1500em
+  }
+  h5 {
+    font-size: 16px; //1.0000em
+    line-height: 23px; //1.4375em
+  }
+  h6 {
+    font-size: 14px; //0.8750em
+    line-height: 23px; //1.6429em
+  }
+  .small {
+    font-size: 12px; //0.7500em
+    line-height: 23px; //1.9167em
+    font-weight: 400;
+  }
+}
+
+//table styles
+@mixin table-styles {
+  table{
+    margin-bottom: 1.5em;
+  }
+}
+
+//list styles
+@mixin list-styles {
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  ul ul,
+  ol ul,
+  ul ol,
+  ol ol {
+    margin-bottom: 0;
+  }
+}
+
+//link styles
+@mixin link-styles {
+  a {
+    color: #1C83C7;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    color: #0D72B5;
+    text-decoration: underline;
+  }
+}
+
+@mixin code-styles {
+  code,
+  kbd,
+  pre,
+  samp {
+    font-size: $code-font-size;
+  }
+}

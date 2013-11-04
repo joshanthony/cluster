@@ -1,0 +1,170 @@
+//This is the native Cluster grid - customise it to have anywhere from 1-1,000,000 columns
+
+//A note about how to work with this grid:
+//The only real thing you need to change is the number of columns and column padding
+//You can also make changes to the breakpoints and turn off push and pull classes (to save precious kilobytes)
+//You could theoretically have fixed width columns. Though this is not tested and I'm pretty sure it will break the grid...
+
+/* Inspired by Bootstrap v3.0.0 / Apache 2.0 License / github.com/twbs/bootstrap */
+
+// adding push pull classes (DO NOT DELETE THIS, INSTEAD TYPE "no" IN THE $include-push-pull VARIABLE)
+@import "push-pull";
+
+//COLUMN LOGIC\\
+//dynamically create regular columns
+@mixin col-x {
+  @for $i from 1 through $columns {
+  .col-#{$i} { width: $column-size * $i; }
+  }
+}
+//dynamically create mobile columns
+@mixin col-x-m {
+  @for $i from 1 through $columns {
+  .col-#{$i}-m { width: $column-size * $i; }
+  }
+}
+//dynamically create desktop columns
+@mixin col-x-d {
+  @for $i from 1 through $columns {
+  .col-#{$i}-d { width: $column-size * $i; }
+  }
+}
+//dynamically create regular offsets
+@mixin offset-x {
+  @for $i from 1 through $columns - 1 {
+  .offset-#{$i} { margin-left: $column-size * $i; }
+  }
+}
+//dynamically create desktop offsets
+@mixin offset-x-d {
+  @for $i from 1 through $columns - 1 {
+  .offset-#{$i}-d { margin-left: $column-size * $i; }
+  }
+}
+//dynamically create list of all classes separated by commas
+@mixin col-list-all {
+  @for $i from 1 through $columns {
+    .col-#{$i}-m{
+      @extend %col-list-all-variables;
+    }
+    .col-#{$i}{
+      @extend %col-list-all-variables;
+    }
+    .col-#{$i}-d{
+      @extend %col-list-all-variables;
+    }
+  }
+}
+//dynamically create list of mobile classes separated by commas minus the last class
+@mixin col-list-m {
+  @for $i from 1 through $columns - 1 {
+    .col-#{$i}-m{
+      @extend %col-list-m-variables;
+    }
+  }
+}
+//dynamically create list of regular classes separated by commas minus the last class
+@mixin col-list {
+  @for $i from 1 through $columns - 1 {
+    .col-#{$i}{
+      @extend %col-list-variables;
+    }
+  }
+}
+//dynamically create list of desktop classes separated by commas minus the last class
+@mixin col-list-d {
+  @for $i from 1 through $columns - 1 {
+    .col-#{$i}-d{
+      @extend %col-list-d-variables;
+    }
+  }
+}
+
+@mixin grid-scaffolding-styles {
+  //CONTAINER\\
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .container:before,
+  .container:after {
+    content: " ";
+    // 1
+    display: table;
+    // 2
+  }
+  .container:after {
+    clear: both;
+  }
+  //ROW\\
+  .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .row:before,
+  .row:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  .row:after {
+    clear: both;
+  }
+  //COLUMNS\\
+  %col-list-all-variables {
+    position: relative;
+    min-height: 1px;
+    padding-left: $column-padding;
+    padding-right: $column-padding;
+  }
+}
+
+@mixin mobile-column-styles {
+  %col-list-m-variables {
+    float: left;
+  }
+  @include col-list-all;
+  @include col-list-m;
+  @include col-x-m;
+}
+
+//regular columns\\
+@mixin regular-column-styles {
+  @media (min-width: $mobile-breakpoint) {
+    .container {
+      max-width: $container-width;
+    }
+    %col-list-variables {
+      float: left;
+    }
+    @include col-list;
+    @include col-x;
+    @include offset-x;
+
+    @if $include-push-pull == yes {
+      @include push-pull;
+    }
+  }
+}
+
+//desktop columns\\
+@mixin desktop-column-styles {
+  @media (min-width: $desktop-breakpoint) {
+    .container {
+      max-width: $desktop-container-width;
+    }
+    %col-list-d-variables {
+      float: left;
+    }
+    @include col-list-d;
+    @include col-x-d;
+    @include offset-x-d;
+
+    @if $include-push-pull == yes {
+      @include push-pull-d;
+    }
+  }
+}

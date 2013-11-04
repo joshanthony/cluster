@@ -1,0 +1,154 @@
+//This navigation is pure css
+//the responsive elements wont work in IE 8 or below. This doesn't really matter because no modern mobile device uses IE 8 anyway.
+
+@mixin menu-styles {
+  //Advanced Checkbox Hack
+  body { -webkit-animation: bugfix infinite 1s; }
+  @-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+  input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  label {
+    display: none;
+    cursor: pointer;
+    user-select: none;
+  }
+  .brand {
+    margin: $nav-brand-margins;
+    font-size: $nav-brand-font-size;
+    line-height: $nav-brand-line-height;
+    font-weight: $nav-brand-font-weight;
+    float: $nav-brand-float;
+    cursor: pointer;
+    &:hover {
+      color: $nav-item-hover-color;
+      text-decoration: none;
+    }
+  }
+  nav[role="nav"] {
+    position: relative;
+    width: 100%;
+    min-height: $nav-min-height;
+    border-width: $nav-border-width;
+    border-style: $nav-border-style;
+    border-color: $nav-border-color;
+    a,
+    label {
+      color: $nav-item-color;
+      text-decoration: none;
+    }
+    ul {
+      padding: 0;
+      margin: 0 auto;
+      list-style: none;
+      float: $nav-item-group-float;
+      >li {
+        float: $nav-item-float;
+        margin: $nav-item-margins;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:hover > a {
+          color: $nav-item-hover-color;
+        }
+        &:hover > a:hover {
+          text-decoration: none;
+        }
+        a {
+          font-size: $nav-item-font-size;
+        }
+      }
+    }
+  }
+}
+
+@mixin mobile-menu-styles {
+  @media screen and (max-width: 767px) {
+    nav[role="nav"] {
+      .nav-collapse {
+        ul {
+          display:none;
+          width:100%;
+        }
+        label {
+          position: relative;
+          display: block;
+          float: $nav-collapse-trigger-text-float;
+          padding: $nav-collapse-trigger-padding;
+          font-size: $nav-collapse-trigger-text-font-size;
+          color: $nav-collapse-trigger-color;
+        }
+        label:hover,
+        input[type=checkbox]:checked ~ label:after {
+            color: $nav-collapse-trigger-hover-color;
+        }
+        label:after {
+          position: relative;
+          float: $nav-collapse-trigger-float;
+          content: $nav-collapse-trigger-content;
+          font-size: $nav-collapse-trigger-font-size;
+        }
+        input[type=checkbox]:checked ~ ul {
+          display:block;
+          >li {
+            width: 100%;
+            text-align: $nav-collapse-item-align;
+            &:after {
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin menu-dropdown-styles {
+  nav[role="nav"] {
+    li ul {
+      display: none;
+    }
+    ul li ul li a {
+      display: block;
+      text-decoration: none;
+      padding: $nav-dropdown-item-padding;
+      white-space: nowrap;
+      font-size: $nav-dropdown-item-font-size;
+    }
+    li:hover ul {
+      display: block;
+      position: absolute;
+      background-color: $nav-dropdown-background-color;
+    }
+    li:hover li {
+      float: none;
+      text-align: $nav-dropdown-item-text-align;
+      border-width: $nav-dropdown-item-border-width;
+      border-style: $nav-dropdown-item-border-style;
+      border-color: $nav-dropdown-item-border-color;
+      margin: $nav-dropdown-item-margin;
+    }
+    li:hover li:first-child {
+      margin-top: $nav-dropdown-first-item-top-margin;
+    }
+    li:hover li:last-child {
+      border-width: $nav-dropdown-last-item-border-width;
+    }
+  }
+}
+
+@mixin menu-stacked-styles {
+  nav[role="nav"].nav-stacked {
+    display: block;
+     ul {
+      display: block;
+      clear: left;
+      >li {
+        width: 100%;
+        text-align: $nav-stacked-item-align;
+      }
+    }
+  }
+}

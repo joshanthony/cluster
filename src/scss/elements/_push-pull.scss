@@ -1,0 +1,47 @@
+//=============================
+//   PUSH/PULL GRID CLASSES ->
+//=============================
+
+//dynamically generated push-pull classes based on the number of columns selected
+@mixin push-x {
+  @for $i from 1 through $columns - 1 {
+  .push-#{$i} { left: $column-size * $i; }
+  }
+}
+@mixin pull-x {
+  @for $i from 1 through $columns - 1 {
+  .pull-#{$i} { right: $column-size * $i; }
+  }
+}
+@mixin push-x-d {
+  @for $i from 1 through $columns - 1 {
+  .push-#{$i}-d { left: $column-size * $i; }
+  }
+}
+@mixin pull-x-d {
+  @for $i from 1 through $columns - 1 {
+  .pull-#{$i}-d { right: $column-size * $i; }
+  }
+}
+
+@mixin push-pull {
+  .push-0 {
+    left: auto;
+  }
+  @include push-x;
+  .pull-0 {
+    right: auto;
+  }
+  @include pull-x;
+}
+
+@mixin push-pull-d {
+  .push-0-d {
+    left: auto;
+  }
+  @include push-x-d;
+  .pull-0-d {
+    right: auto;
+  }
+  @include pull-x-d;
+}
