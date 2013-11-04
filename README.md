@@ -46,9 +46,9 @@ The current version of the highlight.min.js script only highlights HTML (I did t
 4. Media styles
 5. Resuable examples
 
-## Attribution
+## Acknowledgements
 
-Special thanks to a couple of frameworks and open source projects for their hard work or inspiration:
+Special thanks and recognition to the following frameworks and open source projects for their hard work or inspiration:
 
 - [Pure CSS by Yahoo](http://purecss.io "Pure CSS")
 - [Bootstrap](http://getbootstrap.com "Bootstrap")
