@@ -12,22 +12,22 @@ Cluster includes a healthy set of default styles but is designed to be customise
 
 I wrote Cluster because I found other frameworks to be bloated and wasteful, often including a lot of styles that were not used or needed.
 
-Another reason I wrote cluster was so I could mix and match bits of my favourite frameworks and other reusable design patterns.
+Another reason was so I could mix and match bits of my favourite frameworks and other reusable design patterns.
 
 For example - don't use navbars in your design? No problem, just comment out the _navigation.scss file in the main cluster.scss. The main cluster.scss file acts like a controller (for those familiar for MVC) and provides a central place to manage parts of the framework.
 
-I figured if I could make it easy to customise people would create their own reusable design patterns and avoid the typical problem of all websites of a framework all looking the same.
+Cluster is easy to customise and therefore promotes creating distinct and reusable design patterns, avoiding much of the typical problem with framework designs looking too similar.
 
 ##How to get set up
 
 You'll need a few things, I'll share my workload with you here but there are many other ways of working with Cluster.
 
-1. Grab the files, either download the zip or clone
-2. Install SCSS/SASS my favourite install instructions [can be found here](http://sass-lang.com/install "Imstall Sass instruction from Sass HQ")
-3. Include **src/css/cluster.css** in the head of your html file
-3. Make global changes to the **src/scss/cluster.scss** file
-4. Project specific styles should be added to **src/scss/project.scss** (this file will be loaded last)
-5. If you want code highlighting add **src/css/syntax/highlight.min.css** to the head of your page and **src/js/highlight.min.js** to the bottom (just before the closing body tag)
+1. Grab the files, either download the zip or clone.
+2. Install SCSS/SASS the best install instructions [can be found here](http://sass-lang.com/install "Imstall Sass instruction from Sass HQ").
+3. Include **src/css/cluster.css** in the head of your html file.
+3. Make global changes to the **src/scss/cluster.scss** file.
+4. Project specific styles should be added to **src/scss/project.scss** (this file will be loaded last).
+5. If you want code highlighting add **src/css/syntax/highlight.min.css** to the head of your page and **src/js/highlight.min.js** to the bottom (just before the closing body tag).
 
 ###Pro tip: Compiling SCSS on the go for free
 
@@ -39,12 +39,12 @@ The current version of the highlight.min.js script only highlights HTML (I did t
 
 ##To do
 
-1. Documentation
-2. Icons (fix or swap to a new default icon pack)
-2. More complicated form styles
-3. Table styles
-4. Media styles
-5. Resuable examples
+1. Default style documentation;
+2. Icons (fix or swap to a new default icon pack);
+2. More complicated form styles;
+3. Responsive table styles;
+4. Image/video/audio styles; and
+5. A set of example designs.
 
 ## Acknowledgements
 
