@@ -51,7 +51,7 @@ The current version of the highlight.min.js script only highlights HTML (I did t
 Special thanks and recognition to the following frameworks and open source projects for their hard work or inspiration:
 
 - [Pure CSS by Yahoo](http://purecss.io "Pure CSS")
-- [Bootstrap](http://getbootstrap.com "Bootstrap")
+- [Bootstrap](http://getbootstrap.com "Bootstrap") (aka the mothership)
 - [Prism.js](http://prismjs.com "Prism.js")
 - [Entypo Icons](http://entypo.com "Entypo Icons"")
 - [Dalek Ipsum](http://dalekipsum.com/ "Dalek Ipsum")
